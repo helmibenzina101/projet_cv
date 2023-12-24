@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000080;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+            background-color: #eee;
+            padding: 1em;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #000080;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #000080;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #000080;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Contact</h1>
+    </header>
+
+    <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="parcours.html">Parcours Académique</a>
+        <a href="competences.html">Compétences Informatiques</a>
+        <a href="experiences.html">Stages et Expériences</a>
+        <a href="manif.html">Événements</a>
+        <a href="matiere.html">Études et Projets</a>
+        <a href="passions.html">Passions et Sports</a>
+        <a href="quiz.html">Quiz Python</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section>
+        <h2>Formulaire de Contact</h2>
+
+        <form id="contactForm">
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="button" onclick="submitForm()">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 CV de Helmi Ben Zina. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById("contactForm");
+            const formData = new FormData(form);
+
+            // Envoyez les données à votre serveur ici (utilisez AJAX ou fetch)
+
+            // Exemple d'affichage des données dans la console (à des fins de démonstration)
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+            // Réinitialisez le formulaire (à des fins de démonstration)
+            form.reset();
+        }
+    </script>
+
+</body>
+</html>

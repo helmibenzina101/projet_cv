@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000080;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+            background-color: #eee;
+            padding: 1em;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #000080;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #000080;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #000080;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Quiz sur Python</h1>
+    </header>
+
+    <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="parcours.html">Parcours Académique</a>
+        <a href="competences.html">Compétences Informatiques</a>
+        <a href="experiences.html">Stages et Expériences</a>
+        <a href="manif.html">Événements</a>
+        <a href="matiere.html">Études et Projets</a>
+        <a href="passions.html">Passions et Sports</a>
+        <a href="quiz.html">Quiz Python</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section>
+        <h2>Quiz sur Python</h2>
+
+        <form id="quizForm">
+            <label for="q1">1. Quel est le résultat de 2 + 2 en Python ?</label>
+            <input type="text" id="q1" name="q1" required><br>
+
+            <label for="q2">2. Comment définir une liste vide en Python ?</label>
+            <select id="q2" name="q2" required>
+                <option value="">Sélectionner une réponse</option>
+                <option value="a">list = []</option>
+                <option value="b">list = {}</option>
+                <option value="c">list = [ ]</option>
+            </select><br>
+
+            <label for="q3">3. Quelle est la méthode pour ajouter un élément à la fin d'une liste en Python ?</label>
+            <input type="text" id="q3" name="q3" required><br>
+
+            <label for="q4">4. Comment déclare-t-on une fonction en Python ?</label>
+            <input type="text" id="q4" name="q4" required><br>
+
+            <label for="q5">5. Quelle est la sortie de print(2 * 3) en Python ?</label>
+            <input type="text" id="q5" name="q5" required><br>
+
+            <label for="q6">6. Quelle est la méthode pour ouvrir un fichier en lecture en Python ?</label>
+            <input type="text" id="q6" name="q6" required><br>
+
+            <label for="q7">7. Quel est le résultat de 2 ** 3 en Python ?</label>
+            <input type="text" id="q7" name="q7" required><br>
+
+            <label for="q8">8. Comment vérifier si une clé existe dans un dictionnaire en Python ?</label>
+            <input type="text" id="q8" name="q8" required><br>
+
+            <label for="q9">9. Quelle est la fonction pour obtenir la longueur d'une chaîne de caractères en Python ?</label>
+            <input type="text" id="q9" name="q9" required><br>
+
+            <label for="q10">10. Comment commenter une ligne de code en Python ?</label>
+            <input type="text" id="q10" name="q10" required><br>
+
+            <label for="q11">11. Quelle est la méthode pour supprimer un élément d'une liste en Python ?</label>
+            <input type="text" id="q11" name="q11" required><br>
+
+            <label for="q12">12. Comment écrire une boucle "for" en Python ?</label>
+            <input type="text" id="q12" name="q12" required><br>
+
+            <label for="q13">13. Quelle est la méthode pour concaténer deux chaînes de caractères en Python ?</label>
+            <input type="text" id="q13" name="q13" required><br>
+
+            <label for="q14">14. Comment convertir une chaîne de caractères en majuscules en Python ?</label>
+            <input type="text" id="q14" name="q14" required><br>
+
+            <label for="q15">15. Quelle est la méthode pour trier une liste en Python ?</label>
+            <input type="text" id="q15" name="q15" required><br>
+
+            <button type="button" onclick="calculateScore()">Valider</button>
+        </form>
+
+        <div id="result" style="display: none;">
+            <h3>Votre Note:</h3>
+            <p id="score"></p>
+            <h3>Réponses Correctes:</h3>
+            <ul id="correctAnswers"></ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 CV de Helmi Ben Zina. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function calculateScore() {
+            const form = document.getElementById("quizForm");
+            const resultDiv = document.getElementById("result");
+
+            let score = 0;
+            let correctAnswers = [];
+
+            const answers = {
+                q1: "4",
+                q2: "a",
+                q3: "append",
+                q4: "def",
+                q5: "6",
+                q6: "open('filename', 'r')",
+                q7: "8",
+                q8: "in",
+                q9: "len()",
+                q10: "#",
+                q11: "remove()",
+                q12: "for item in sequence:",
+                q13: "+",
+                q14: "upper()",
+                q15: "sorted()"
+            };
+
+            // Vérifiez les réponses
+            for (let i = 1; i <= 15; i++) {
+                const questionId = "q" + i;
+                const userAnswer = form[questionId].value.trim().toLowerCase();
+
+                if (userAnswer === answers[questionId]) {
+                    score++;
+                    correctAnswers.push(`Question ${i}`);
+                }
+            }
+
+            // Affiche les résultats
+            document.getElementById("score").textContent = `Score: ${score}/${Object.keys(answers).length}`;
+            document.getElementById("correctAnswers").innerHTML = correctAnswers.map(answer => `<li>${answer}</li>`).join("");
+            resultDiv.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
+
