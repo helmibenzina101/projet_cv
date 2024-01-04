@@ -1,0 +1,2 @@
+ background-image: url("images/bg.webp");
+            background-size: cover;
